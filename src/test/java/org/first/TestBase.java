@@ -13,14 +13,15 @@ public class TestBase {
     @BeforeAll
     static void beforeAll() {
 
-        Configuration.baseUrl = "https://ya.ru";
+        Configuration.baseUrl = "https://demoqa.com";
         Configuration.browserSize = "1920x1080";
-        Configuration.timeout = 120000;
+        Configuration.pageLoadStrategy = "eager";
+        Configuration.timeout = 60000;
+        Configuration.pageLoadTimeout = 60000;
+        Configuration.browserVersion = "118";
         Configuration.headless = false;
         Configuration.webdriverLogsEnabled = true;
         Configuration.browser = Browsers.CHROME;
-
-
     }
 
     @AfterEach

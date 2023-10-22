@@ -1,5 +1,6 @@
-package org.first;
+package org.first.selenide;
 
+import org.first.TestBase;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
