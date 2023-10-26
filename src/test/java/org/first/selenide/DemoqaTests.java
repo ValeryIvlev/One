@@ -29,10 +29,8 @@ public class DemoqaTests extends TestBase {
                 .enterCity(city)
                 .fileUpLoad()
                 .enterDateCalendar(yearBirth, mouthBirth, dayBirth)
-                .sendForm();
-
-        RegistrationResultPage result = new RegistrationResultPage();
-        result.checkResult(new String[]{firstName + " " + lastName, email, gender, phoneNumber,dayBirth+" "+mouthBirth+","+yearBirth,
+                .sendForm()
+                .checkResult(new String[]{firstName + " " + lastName, email, gender, phoneNumber,dayBirth+" "+mouthBirth+","+yearBirth,
                 String.join(", ",subjects), String.join(", ", hobbies), "1.png", currentAddress, state + " " + city});
 
     }

@@ -1,6 +1,7 @@
 package org.first.pages;
 
 
+import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import org.first.helpers.Calendar;
 
@@ -81,9 +82,9 @@ public class StudentRegistrationFormPage {
         $("#uploadPicture").uploadFile(file);
         return this;
     }
-    public StudentRegistrationFormPage sendForm(){
+    public RegistrationResultPage sendForm(){
         buttonSubmit.click();
-        return this;
+        return Selenide.page(RegistrationResultPage.class);
     }
     public StudentRegistrationFormPage enterDateCalendar(String year, String mouth, String day){
         Calendar calendar = new Calendar();
