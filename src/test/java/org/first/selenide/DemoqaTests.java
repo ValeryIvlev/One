@@ -2,11 +2,11 @@ package org.first.selenide;
 
 import org.first.TestBase;
 
+import org.first.pages.RegistrationResultPage;
 import org.first.pages.StudentRegistrationFormPage;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static com.codeborne.selenide.Selenide.$$;
 import static org.first.helpers.UserDate.*;
 
 
@@ -30,7 +30,10 @@ public class DemoqaTests extends TestBase {
                 .fileUpLoad()
                 .enterDateCalendar(yearBirth, mouthBirth, dayBirth)
                 .sendForm();
-        //Selenide.sleep(1000000);
+
+        RegistrationResultPage result = new RegistrationResultPage();
+        result.checkResult(new String[]{firstName + " " + lastName, email, gender, phoneNumber,dayBirth+" "+mouthBirth+","+yearBirth,
+                String.join(", ",subjects), String.join(", ", hobbies), "1.png", currentAddress, state + " " + city});
 
     }
 }

@@ -21,7 +21,7 @@ public class UserDate {
     public static String yearBirth = String.valueOf(faker.number().numberBetween(1960,1999));
     public static String gender = genderRole[random.nextInt(0, genderRole.length)];
     public static String mouthBirth = month[random.nextInt(0, month.length)];
-    public static String dayBirth = String.format("%03d", faker.number().numberBetween(1,28));
+    public static String dayBirth = String.format("%02d", faker.number().numberBetween(1,28));
     public static String state = "NCR";
     public static String city = "Delhi";
 
