@@ -1,9 +1,9 @@
-package org.first.helpers;
+package org.first.pages;
 
 
 import static com.codeborne.selenide.Selenide.$;
 
-public class Calendar {
+public class CalendarPage {
 
     public void setDate(String year, String mouth, String day){
         $(".react-datepicker__year-select").selectOption(year);

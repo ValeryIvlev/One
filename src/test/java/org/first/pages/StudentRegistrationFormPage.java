@@ -3,20 +3,17 @@ package org.first.pages;
 
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
-import org.first.helpers.Calendar;
 
 
 import java.io.File;
 
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
-import static org.first.helpers.UserDate.gender;
 
 public class StudentRegistrationFormPage {
     private final SelenideElement inputFirstName = $("#firstName");
     private final SelenideElement inputLastName = $("#lastName");
     private final SelenideElement inputEmail = $("#userEmail");
-    private final SelenideElement buttonGender = $(byText(gender));
     private final SelenideElement phoneNumber = $("#userNumber");
     private final SelenideElement inputSubjects = $("#subjectsInput");
     private final SelenideElement inputCurrentAddress = $("#currentAddress");
@@ -28,6 +25,11 @@ public class StudentRegistrationFormPage {
 
     public StudentRegistrationFormPage openPage(){
         open("/automation-practice-form");
+        return this;
+    }
+    public StudentRegistrationFormPage killBanner(){
+        executeJavaScript("$('#fixedban').remove()");
+        executeJavaScript("$('footer').remove()");
         return this;
     }
     public StudentRegistrationFormPage enterFirstName(String firstName){
@@ -42,8 +44,8 @@ public class StudentRegistrationFormPage {
         inputEmail.sendKeys(Email);
         return this;
     }
-    public StudentRegistrationFormPage clickButtonGender(){
-        buttonGender.click();
+    public StudentRegistrationFormPage clickButtonGender(String gender){
+        $(byText(gender)).click();
         return this;
     }
     public StudentRegistrationFormPage enterPhone(String phone){
@@ -87,7 +89,7 @@ public class StudentRegistrationFormPage {
         return Selenide.page(RegistrationResultPage.class);
     }
     public StudentRegistrationFormPage enterDateCalendar(String year, String mouth, String day){
-        Calendar calendar = new Calendar();
+        CalendarPage calendar = new CalendarPage();
         inputCalendar.click();
         calendar.setDate(year, mouth, day);
         return this;

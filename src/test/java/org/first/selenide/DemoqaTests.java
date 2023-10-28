@@ -2,36 +2,36 @@ package org.first.selenide;
 
 import org.first.TestBase;
 
-import org.first.pages.RegistrationResultPage;
+import org.first.helpers.UserDate;
 import org.first.pages.StudentRegistrationFormPage;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static org.first.helpers.UserDate.*;
-
 
 public class DemoqaTests extends TestBase {
-
     @Test
     @DisplayName("Проверка формы регистрации студента")
     void checkFormRegistrationStudent(){
+        UserDate date = new UserDate();
         StudentRegistrationFormPage sRFP = new StudentRegistrationFormPage();
+        String [] expected = {date.firstName + " " + date.lastName, date.email, date.gender, date.phoneNumber,
+                date.dayBirth+" "+date.mouthBirth+","+date.yearBirth, String.join(", ",date.subjects),
+                String.join(", ", date.hobbies), "1.png", date.currentAddress, date.state + " " + date.city};
         sRFP.openPage()
-                .enterLastName(lastName)
-                .enterFirstName(firstName)
-                .enterEmail(email)
-                .clickButtonGender()
-                .enterPhone(phoneNumber)
-                .choiceSubjects(subjects)
-                .choiceHobbies(hobbies)
-                .enterCurrentAddress(currentAddress)
-                .enterState(state)
-                .enterCity(city)
+                .killBanner()
+                .enterLastName(date.lastName)
+                .enterFirstName(date.firstName)
+                .enterEmail(date.email)
+                .clickButtonGender(date.gender)
+                .enterPhone(date.phoneNumber)
+                .choiceSubjects(date.subjects)
+                .choiceHobbies(date.hobbies)
+                .enterCurrentAddress(date.currentAddress)
+                .enterState(date.state)
+                .enterCity(date.city)
                 .fileUpLoad()
-                .enterDateCalendar(yearBirth, mouthBirth, dayBirth)
+                .enterDateCalendar(date.yearBirth, date.mouthBirth, date.dayBirth)
                 .sendForm()
-                .checkResult(new String[]{firstName + " " + lastName, email, gender, phoneNumber,dayBirth+" "+mouthBirth+","+yearBirth,
-                String.join(", ",subjects), String.join(", ", hobbies), "1.png", currentAddress, state + " " + city});
-
+                .checkResult(expected);
     }
 }
