@@ -1,4 +1,4 @@
-package org.first.component;
+package org.first.pages.component;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;

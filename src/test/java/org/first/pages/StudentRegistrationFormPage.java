@@ -3,8 +3,8 @@ package org.first.pages;
 
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
-import org.first.component.CalendarComponent;
-import org.first.component.ResultComponent;
+import org.first.pages.component.CalendarComponent;
+import org.first.pages.component.ResultComponent;
 
 
 import java.io.File;
