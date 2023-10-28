@@ -1,11 +1,13 @@
-package org.first.pages;
+package org.first.component;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
-import static org.first.TestConstant.MODAL_WINDOW_LABELS;
 
-public class RegistrationResultPage {
+public class ResultComponent {
+
+    private static final String [] MODAL_WINDOW_LABELS= {"Student Name", "Student Email", "Gender", "Mobile",
+            "Date of Birth", "Subjects", "Hobbies", "Picture", "Address", "State and City"};
 
     public void checkResult(String... textsExp){
         for (int i = 0; i < textsExp.length; i++) {

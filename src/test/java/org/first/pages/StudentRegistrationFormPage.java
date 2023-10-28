@@ -3,6 +3,8 @@ package org.first.pages;
 
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
+import org.first.component.CalendarComponent;
+import org.first.component.ResultComponent;
 
 
 import java.io.File;
@@ -84,12 +86,12 @@ public class StudentRegistrationFormPage {
         $("#uploadPicture").uploadFile(file);
         return this;
     }
-    public RegistrationResultPage sendForm(){
+    public ResultComponent sendForm(){
         buttonSubmit.click();
-        return Selenide.page(RegistrationResultPage.class);
+        return Selenide.page(ResultComponent.class);
     }
     public StudentRegistrationFormPage enterDateCalendar(String year, String mouth, String day){
-        CalendarPage calendar = new CalendarPage();
+        CalendarComponent calendar = new CalendarComponent();
         inputCalendar.click();
         calendar.setDate(year, mouth, day);
         return this;
