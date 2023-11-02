@@ -1,5 +1,6 @@
 package org.first.selenide;
 
+import com.codeborne.selenide.DragAndDropOptions;
 import com.codeborne.selenide.Selenide;
 import org.first.TestBase;
 import org.junit.jupiter.api.DisplayName;
@@ -54,5 +55,22 @@ public class GithubTests extends TestBase {
                 "    $(\"#second\").should(visible).click();\n" +
                 "  }\n" +
                 "}"));
+    }
+    @Test
+    @DisplayName("Make Hover Great Again")
+    void makeHoverGreatAgain(){
+        open("https://github.com");
+        $(byText("Solutions")).hover();
+        $(byText("Enterprise")).click();
+        $("[data-testid='Grid-:R2kl:']").shouldHave(text("The AI-powered"));
+    }
+    @Test
+    @DisplayName("Make D&D Great Again")
+    void makeDndGreatAgain(){
+        open("https://the-internet.herokuapp.com/drag_and_drop");
+        $("#column-a").dragAndDrop(DragAndDropOptions.to("#column-b"));
+        $("#column-b").shouldHave(text("A"));
+        $("#column-a").shouldHave(text("B"));
+
     }
 }
