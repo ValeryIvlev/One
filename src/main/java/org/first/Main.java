@@ -12,9 +12,6 @@ public class Main {
 
         //System.out.println(sumIntAndDouble(20));
 
-        //byte a = 100;
-
-        //byte b = 200 + a;
 
         }
 
