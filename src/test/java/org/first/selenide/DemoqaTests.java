@@ -2,7 +2,7 @@ package org.first.selenide;
 
 import org.first.TestBase;
 
-import org.first.helpers.UserDate;
+import org.first.testData.UserDate;
 import org.first.pages.StudentRegistrationFormPage;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

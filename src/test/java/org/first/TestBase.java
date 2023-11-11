@@ -17,7 +17,7 @@ public class TestBase {
         Configuration.browserSize = "1920x1080";
         Configuration.pageLoadStrategy = "eager";
         Configuration.timeout = 20000;
-        Configuration.pageLoadTimeout = 20000;
+        //Configuration.pageLoadTimeout = 20000;
         Configuration.browserVersion = "118";
         Configuration.headless = false;
         Configuration.webdriverLogsEnabled = true;

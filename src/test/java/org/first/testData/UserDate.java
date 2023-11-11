@@ -1,9 +1,9 @@
-package org.first.helpers;
+package org.first.testData;
 
 import com.github.javafaker.Faker;
 
 import java.util.Locale;
-import java.util.Random;
+
 
 public class UserDate {
     private final Faker faker = new Faker(new Locale("ru"));
@@ -20,6 +20,16 @@ public class UserDate {
     public String mouthBirth = faker.options().option("January", "February", "March", "April", "May", "June",
             "July", "August", "September", "October", "November", "December");
     public String dayBirth = String.format("%02d", faker.number().numberBetween(1,28));
-    public String state = "NCR";
-    public String city = "Delhi";
+    public String state = faker.options().option("NCR", "Uttar Pradesh", "Haryana", "Rajasthan");
+    public String city = getCity();
+
+    private String getCity(){
+        return switch (state) {
+            case "NCR" -> faker.options().option("Delhi", "Gurgaon", "Noida");
+            case "Uttar Pradesh" -> faker.options().option("Agra", "Lucknow", "Merrut");
+            case "Haryana" -> faker.options().option("Karnal", "Panipat");
+            case "Rajasthan" -> faker.options().option("Jaipur", "Jaiselmer");
+            default -> null;
+        };
+    }
 }

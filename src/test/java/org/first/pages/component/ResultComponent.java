@@ -1,9 +1,7 @@
 package org.first.pages.component;
 
-import com.codeborne.selenide.Selenide;
-import com.codeborne.selenide.SelenideElement;
 
-import java.util.HashMap;
+import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
