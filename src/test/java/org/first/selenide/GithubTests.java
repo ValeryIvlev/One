@@ -1,7 +1,6 @@
 package org.first.selenide;
 
 import com.codeborne.selenide.DragAndDropOptions;
-import com.codeborne.selenide.Selenide;
 import org.first.TestBase;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
