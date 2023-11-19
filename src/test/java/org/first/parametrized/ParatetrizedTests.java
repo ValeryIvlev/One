@@ -28,7 +28,7 @@ public class ParatetrizedTests extends TestBase {
     })
 
     @ParameterizedTest(name = "Проверка перехода к актуальной вакансии {0}")
-    void сheckingСorrectLinkCurrentVacancies (String vacancy){
+    void checkingCorrectLinkCurrentVacancies (String vacancy){
         //ВАЖНО УСТАНОВИТЕ ЗНАЧЕНИЕ НАСЛАЖДЕНИЯ ДОДО МУЗЫКОЙ ПЕРЕД ЗАПУСКОМ ТЕСТА! enjoyDodoMusic
         open("https://dodo.dev/");
         $(".audio").click();
