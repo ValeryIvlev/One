@@ -1,9 +1,8 @@
-package org.first.fileTest;
+package org.first.filetest;
 
 import java.util.List;
-import java.util.function.Supplier;
 
-public class Js {
+public class JsonModel {
 
     private String id;
     private String guid;
