@@ -15,7 +15,13 @@ dependencies {
             "com.codeborne:selenide:7.0.2",
             'org.junit.jupiter:junit-jupiter:5.10.1',
             "com.github.javafaker:javafaker:1.0.2",
-            'org.assertj:assertj-core:3.24.2'
+            'org.assertj:assertj-core:3.24.2',
+            'commons-io:commons-io:2.15.0',
+            'com.codeborne:pdf-test:1.5.0',
+            'com.codeborne:xls-test:1.4.3',
+            'com.opencsv:opencsv:5.9',
+            'com.fasterxml.jackson.core:jackson-core:2.13.1',
+            'com.fasterxml.jackson.core:jackson-databind:2.14.1'
     )
 }
 
