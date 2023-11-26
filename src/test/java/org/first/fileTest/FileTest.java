@@ -12,12 +12,15 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.file.Paths;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class FileTest {
     private ClassLoader cl = FileTest.class.getClassLoader();
@@ -48,20 +51,11 @@ public class FileTest {
     }
     @Test
     void jsonTest() throws Exception {
-        InputStream inputStream = FileTest.class.getResourceAsStream("/js.json");
         ObjectMapper objectMapper = new ObjectMapper();
-        Map<String, Object> map = objectMapper.readValue(inputStream, new TypeReference<Map<String, Object>>() {});
-        assertThat(map.get("_id").equals("6563179628bd986edf725c68"));
-        assertThat(map.get("index").equals("0"));
-        assertThat(map.get("isActive").equals(true));
-        assertThat(map.get("tags").equals(new String[]{
-                        "dolore",
-                "proident",
-                "commodo",
-                "ullamco",
-                "eiusmod",
-                "quis",
-                "commodo"
-  }));
+        InputStream is = FileTest.class.getResourceAsStream("/js.json");
+        Js js = objectMapper.readValue(is, Js.class);
+        assertEquals("6563179628bd986edf725c68", js.getId());
+        assertEquals("6e6c2c65-8582-4b34-80a6-54a7fc7e5e1c", js.getGuid());
+        assertEquals(7, js.getTags().size());
     }
 }
