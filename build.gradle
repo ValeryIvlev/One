@@ -1,5 +1,20 @@
 plugins {
     id 'java-library'
+    id "io.qameta.allure" version "2.11.2"
+}
+
+allure {
+    report {
+        version.set("2.24.0")
+    }
+    adapter {
+        aspectjWeaver.set(true)
+        frameworks {
+            junit5 {
+                adapterVersion.set("2.24.0")
+            }
+        }
+    }
 }
 
 repositories {
@@ -22,7 +37,8 @@ dependencies {
             'com.opencsv:opencsv:5.9',
             'com.fasterxml.jackson.core:jackson-core:2.13.1',
             'com.fasterxml.jackson.core:jackson-databind:2.14.1',
-            'org.projectlombok:lombok:1.18.30'
+            'org.projectlombok:lombok:1.18.30',
+            'io.qameta.allure:allure-selenide:2.24.0'
     )
 }
 
