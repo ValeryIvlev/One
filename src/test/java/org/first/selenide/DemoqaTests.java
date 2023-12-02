@@ -5,9 +5,10 @@ import org.first.TestBase;
 import org.first.testdata.UserDate;
 import org.first.pages.StudentRegistrationFormPage;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
-
+@Tag("DemoQa")
 public class DemoqaTests extends TestBase {
     @Test
     @DisplayName("Проверка формы регистрации студента заполнены все поля")
