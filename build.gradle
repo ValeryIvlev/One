@@ -27,7 +27,7 @@ tasks.withType(JavaCompile) {
 
 dependencies {
     testImplementation (
-            "com.codeborne:selenide:7.0.2",
+            "com.codeborne:selenide:6.19.1",
             'org.junit.jupiter:junit-jupiter:5.10.1',
             "com.github.javafaker:javafaker:1.0.2",
             'org.assertj:assertj-core:3.24.2',
