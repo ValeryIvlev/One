@@ -3,6 +3,7 @@ package org.first.selenide;
 import com.codeborne.selenide.DragAndDropOptions;
 import org.first.TestBase;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 
@@ -63,6 +64,7 @@ public class GithubTests extends TestBase {
         $(byText("Enterprise")).click();
         $("[data-testid='Grid-:R2kl:']").shouldHave(text("The AI-powered"));
     }
+    @Tag("DnD")
     @Test
     @DisplayName("Make D&D Great Again")
     void makeDndGreatAgain(){

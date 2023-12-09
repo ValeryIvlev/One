@@ -44,7 +44,7 @@ dependencies {
 
 tasks.withType(Test) {
     useJUnitPlatform()
-
+    systemProperties(System.getProperties())
     testLogging {
         lifecycle {
             events "started", "skipped", "failed", "standard_error", "standard_out"
@@ -56,5 +56,11 @@ tasks.withType(Test) {
 task demoqa_test(type: Test) {
     useJUnitPlatform {
         includeTags("DemoQa")
+    }
+}
+
+task dnd_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("DnD")
     }
 }
