@@ -5,6 +5,8 @@ import com.codeborne.selenide.Configuration;
 
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
+import org.aeonbits.owner.ConfigFactory;
+import org.first.config.BrowserDriverConfig;
 import org.first.helpers.Attach;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -18,19 +20,22 @@ public class TestBase {
 
     @BeforeAll
     static void beforeAll() {
+        BrowserDriverConfig config = ConfigFactory.create(BrowserDriverConfig.class, System.getProperties());
 
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.browserSize = System.getProperty("size", "1920x1080");
         Configuration.pageLoadStrategy = "eager";
         Configuration.timeout = 20000;
         //Configuration.pageLoadTimeout = 20000;
-        Configuration.browserVersion = System.getProperty("version", "100");
+        Configuration.browserVersion = config.getBrowserVersion();
         Configuration.headless = false;
         Configuration.webdriverLogsEnabled = true;
-        Configuration.browser = System.getProperty("browser", "chrome");
+        Configuration.browser = config.getBrowserName();
 
-        Configuration.remote
-                = System.getProperty("selenoid", "https://user1:1234@selenoid.autotests.cloud/wd/hub");
+        if (!config.getRemoteWebDriver().isEmpty()) {
+            Configuration.remote
+                    = config.getRemoteWebDriver();
+        }
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("selenoid:options", Map.<String, Object>of(
                 "enableVNC", true,
